@@ -1,0 +1,14 @@
+source https://api.nuget.org/v3/index.json
+
+storage: none
+framework: netcoreapp3.1, netstandard2.0, netstandard2.1
+nuget Flux.Core
+nuget FSharp.Control.Reactive
+nuget FSharp.Core
+nuget FSharpPlus
+nuget FsPickler
+nuget FsPickler.Json
+nuget Legivel
+nuget Logary
+nuget SchlenkR.FsHttp
+nuget Suave

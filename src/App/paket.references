@@ -1,0 +1,10 @@
+FSharp.Core
+Suave
+FsPickler
+FsPickler.Json
+Logary
+SchlenkR.FsHttp
+Hopac
+FSharpPlus
+Flux.Core
+FSharp.Control.Reactive
