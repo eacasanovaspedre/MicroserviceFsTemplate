@@ -19,7 +19,7 @@ let main argv =
     job {
         let! shutdownPromise = Promise.start shutdown.Agent
         
-        let httpServer = Http.Server.startServer [Health.healthCheckEndpoint] cts.Token
+        let httpServer = Http.Server.startServer [Health.healthCheckEndpoint] cts.Token (fun e -> raise e)
 
         do! Job.start httpServer.Server
 
@@ -32,8 +32,6 @@ let main argv =
                     >>= fun () -> httpServer.Stopped)
                 []
                 shutdown.Mailbox
-
-        do! IVar.fill httpServer.OnError (fun e -> Shutdown.unregister httpServerId shutdown.Mailbox >>- konst ())
 
         do! Promise.read shutdownPromise
         return 0
